@@ -28,15 +28,16 @@ function setup() {
   circleY = 0;
   
 }
-
-// function mousePressed() {
-//   if(mouseX > (windowWidth - 100) && mouseY > (windowHeight - 100)) {
-//     circleButton += 10;
-//   }
-//   if(mouseX > (windowWidth - 200) && mouseX < (windowWidth - 100) && mouseY > (windowHeight - 100)) {
-//     circleButton -= 10;
-//   }
-// }
+/*
+function mousePressed() {
+  if(mouseX > (windowWidth - 100) && mouseY > (windowHeight - 100)) {
+    circleButton += 10;
+  }
+  if(mouseX > (windowWidth - 200) && mouseX < (windowWidth - 100) && mouseY > (windowHeight - 100)) {
+    circleButton -= 10;
+  }
+}
+*/
 
 function touchStarted() {
   if(mouseX > (windowWidth - 100) && mouseY > (windowHeight - 100)) {
