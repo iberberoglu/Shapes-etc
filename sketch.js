@@ -8,8 +8,7 @@ let triangleX1, triangleY1, triangleX2, triangleY2, triangleX3, triangleY3;
 let triangleBaseX = 100;
 let triangleBaseY = 100;
 let maxLength;
-let enlargeButton = 50;
-let shrinkButton = 50;
+let enlargeButton = 10;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
