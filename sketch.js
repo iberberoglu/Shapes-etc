@@ -10,6 +10,37 @@ let triangleBaseY = 100;
 let maxLength;
 let enlargeButton = 10;
 
+// ŞEKİLLERİ KÜÇÜLTME VE BÜYÜTME BUTONLARI
+const smallerButton = document.getElementById("smallButton");
+const largerButton = document.getElementById("largeButton");
+let interval;
+// buraya bir daha bir bak 0dan aşağı iniyor!!
+smallerButton.addEventListener("mousedown", function(){
+  if(enlargeButton != 0){
+    interval = setInterval(function() {
+      if(enlargeButton != 0){
+        enlargeButton -= 10;;
+      }
+  }, 100);
+  }
+})
+
+smallerButton.addEventListener('mouseup', function() {
+  clearInterval(interval);
+});
+
+largerButton.addEventListener("mousedown", function(){
+  interval = setInterval(function() {
+    enlargeButton += 10;;
+}, 100);
+})
+
+largerButton.addEventListener('mouseup', function() {
+  clearInterval(interval);
+});
+
+
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(0);
@@ -31,17 +62,6 @@ function touchStarted() {
 }
 
 function draw() {
-  if (mouseIsPressed) {
-    if (mouseX > windowWidth - 100 && mouseY > windowHeight - 100) {
-      enlargeButton += 1;
-    } else if (
-      mouseX > windowWidth - 200 &&
-      mouseX < windowWidth - 100 &&
-      mouseY > windowHeight - 100
-    ) {
-      enlargeButton -= 1;
-    }
-  }
 
   shapeColor = color(random(255), random(255), random(255));
   fill(shapeColor);
