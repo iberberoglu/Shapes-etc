@@ -1,5 +1,5 @@
 let shapeX, shapeY;
-let shapeSize, shapeColor;
+let shapeSize, shapeColor, strokeColor, strokeWeightRandom;
 let baseShapeSize = 40;
 let randomSize;
 let randomX, randomY;
@@ -91,7 +91,11 @@ function setup() {
 
 function draw() {
   //strokeWeight(0); // şekillerin border'ı
+  strokeColor = color(random(255), random(255), random(255));
+  strokeWeightRandom = random(10);
   shapeColor = color(random(255), random(255), random(255));
+  stroke(strokeColor);
+  strokeWeight(strokeWeightRandom);
   fill(shapeColor);
   rectMode(CENTER);
   randomSize = random(enlargeButton);
