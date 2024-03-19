@@ -23,3 +23,13 @@ canvas {
   border-radius: 0.4rem;
   padding: 1rem;
 }
+
+.enlargeSize {
+  position: relative;
+  left: 0;
+  z-index: 300;
+  color: white;
+  font-size: 30px;
+  display: flex;
+  justify-content: end;
+}

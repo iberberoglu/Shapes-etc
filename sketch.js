@@ -13,8 +13,11 @@ let enlargeButton = 10;
 // ŞEKİLLERİ KÜÇÜLTME VE BÜYÜTME BUTONLARI
 const smallerButton = document.getElementById("smallButton");
 const largerButton = document.getElementById("largeButton");
+const enlargeSize = document.getElementById("enlargeSize");
+
 let interval;
 // buraya bir daha bir bak 0dan aşağı iniyor!!
+
 smallerButton.addEventListener("mousedown", function(){
   if(enlargeButton != 0){
     interval = setInterval(function() {
@@ -24,6 +27,7 @@ smallerButton.addEventListener("mousedown", function(){
   }, 100);
   }
 })
+
 
 smallerButton.addEventListener('mouseup', function() {
   clearInterval(interval);
@@ -39,6 +43,12 @@ largerButton.addEventListener('mouseup', function() {
   clearInterval(interval);
 });
 
+// Büyüklüğü ekranda göster
+interval = setInterval(() => {
+  enlargeSize.innerHTML = enlargeButton;
+}, 10);
+
+
 
 
 function setup() {
@@ -48,18 +58,18 @@ function setup() {
   shapeY = 0;
 }
 
-function touchStarted() {
-  if (mouseX > windowWidth - 100 && mouseY > windowHeight - 100) {
-    enlargeButton += 10;
-  }
-  if (
-    mouseX > windowWidth - 200 &&
-    mouseX < windowWidth - 100 &&
-    mouseY > windowHeight - 100
-  ) {
-    enlargeButton -= 10;
-  }
-}
+// function touchStarted() {
+//   if (mouseX > windowWidth - 100 && mouseY > windowHeight - 100) {
+//     enlargeButton += 10;
+//   }
+//   if (
+//     mouseX > windowWidth - 200 &&
+//     mouseX < windowWidth - 100 &&
+//     mouseY > windowHeight - 100
+//   ) {
+//     enlargeButton -= 10;
+//   }
+// }
 
 function draw() {
 
@@ -95,15 +105,5 @@ function draw() {
     triangle(triangleX1, triangleY1, triangleX2, triangleY2, triangleX3, triangleY3);
   }
 
-  fill(255);
-  let buttonX = windowWidth - 100;
-  let buttonY = windowHeight - 50;
-  rect(buttonX, buttonY, 200, 100, 25);
-  line(windowWidth - 100, windowHeight - 100, windowWidth - 100, windowHeight);
-  fill(0);
-  textSize(12);
-  text("Bigger shapes", windowWidth - 90, windowHeight - 50);
-  text("Smaller shapes", windowWidth - 190, windowHeight - 50);
-  textSize(18);
-  text(enlargeButton, windowWidth - 30, windowHeight - 70);
+ 
 }
