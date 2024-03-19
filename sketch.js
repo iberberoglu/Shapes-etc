@@ -72,7 +72,7 @@ function setup() {
 // }
 
 function draw() {
-
+  //strokeWeight(0); // şekillerin border'ı
   shapeColor = color(random(255), random(255), random(255));
   fill(shapeColor);
   rectMode(CENTER);
