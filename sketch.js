@@ -49,7 +49,7 @@ smallerButton.addEventListener("touchstart", function(event) {
   event.preventDefault();
   if (enlargeButton > 0) {
     interval = setInterval(function() {
-      enlargeButton -= 1;
+      enlargeButton -= 10;
       if (enlargeButton < 0) {
         enlargeButton = 0;
       }
@@ -64,8 +64,8 @@ smallerButton.addEventListener("touchend", function() {
 largerButton.addEventListener("touchstart", function(event) {
   event.preventDefault();
   interval = setInterval(function() {
-    enlargeButton += 1;
-  }, 100);
+    enlargeButton += 10;
+  }, 75);
 });
 
 largerButton.addEventListener("touchend", function() {
