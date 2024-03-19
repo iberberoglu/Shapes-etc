@@ -18,13 +18,14 @@ const enlargeSize = document.getElementById("enlargeSize");
 let interval;
 // buraya bir daha bir bak 0dan aşağı iniyor!!
 
+// MOUSE CLICK
 smallerButton.addEventListener("mousedown", function(){
   if(enlargeButton != 0){
     interval = setInterval(function() {
       if(enlargeButton != 0){
         enlargeButton -= 10;;
       }
-  }, 100);
+  }, 75);
   }
 })
 
@@ -36,10 +37,36 @@ smallerButton.addEventListener('mouseup', function() {
 largerButton.addEventListener("mousedown", function(){
   interval = setInterval(function() {
     enlargeButton += 10;;
-}, 100);
+}, 75);
 })
 
 largerButton.addEventListener('mouseup', function() {
+  clearInterval(interval);
+});
+
+// TOUCH SCREEN
+smallerButton.addEventListener("touchstart", function() {
+  if (enlargeButton > 0) {
+    interval = setInterval(function() {
+      enlargeButton -= 1;
+      if (enlargeButton < 0) {
+        enlargeButton = 0;
+      }
+    }, 75);
+  }
+});
+
+smallerButton.addEventListener("touchend", function() {
+  clearInterval(interval);
+});
+
+largerButton.addEventListener("touchstart", function() {
+  interval = setInterval(function() {
+    enlargeButton += 1;
+  }, 75);
+});
+
+largerButton.addEventListener("touchend", function() {
   clearInterval(interval);
 });
 
@@ -58,18 +85,7 @@ function setup() {
   shapeY = 0;
 }
 
-// function touchStarted() {
-//   if (mouseX > windowWidth - 100 && mouseY > windowHeight - 100) {
-//     enlargeButton += 10;
-//   }
-//   if (
-//     mouseX > windowWidth - 200 &&
-//     mouseX < windowWidth - 100 &&
-//     mouseY > windowHeight - 100
-//   ) {
-//     enlargeButton -= 10;
-//   }
-// }
+
 
 function draw() {
   //strokeWeight(0); // şekillerin border'ı
