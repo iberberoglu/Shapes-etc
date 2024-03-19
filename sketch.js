@@ -45,7 +45,8 @@ largerButton.addEventListener('mouseup', function() {
 });
 
 // TOUCH SCREEN
-smallerButton.addEventListener("touchstart", function() {
+smallerButton.addEventListener("touchstart", function(event) {
+  event.preventDefault();
   if (enlargeButton > 0) {
     interval = setInterval(function() {
       enlargeButton -= 1;
@@ -60,10 +61,11 @@ smallerButton.addEventListener("touchend", function() {
   clearInterval(interval);
 });
 
-largerButton.addEventListener("touchstart", function() {
+largerButton.addEventListener("touchstart", function(event) {
+  event.preventDefault();
   interval = setInterval(function() {
     enlargeButton += 1;
-  }, 75);
+  }, 100);
 });
 
 largerButton.addEventListener("touchend", function() {
